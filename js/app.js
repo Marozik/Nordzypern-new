@@ -5674,25 +5674,34 @@ PERFORMANCE OF THIS SOFTWARE.
     da.init();
     window.addEventListener("load", windowLoad);
     function windowLoad() {
-        const introOverlay = document.querySelector(".intro-overlay");
+        const topOverlay = document.querySelector(".top-overlay");
         const bottomOverlay = document.querySelector(".bottom-overlay");
-        const closeOverlays = document.querySelectorAll(".overlay-close");
+        const topCloseOverlay = document.querySelector(".overlay-top-close");
+        const bottomCloseOverlays = document.querySelector(".overlay-bottom-close");
         const introButton = document.querySelector(".intro__button");
-        if (introOverlay) {
+        if (topOverlay) {
+            topCloseOverlay.addEventListener("click", (function(e) {
+                e.preventDefault();
+                topOverlay.classList.add("_close");
+                introButton.classList.add("_active");
+            }));
+            bottomCloseOverlays.addEventListener("click", (function(e) {
+                e.preventDefault();
+                bottomOverlay.classList.add("_close");
+            }));
+        }
+        if (bottomOverlay) {
             window.addEventListener("scroll", showOverlay);
             function showOverlay() {
+                var body = document.body;
+                var html = document.documentElement;
+                var bodyHeight = Math.max(body.scrollHeight, body.offsetHeight, body.getBoundingClientRect().height, html.clientHeight, html.scrollHeight, html.offsetHeight);
+                console.log(bodyHeight);
+                let halfPage = Math.floor(bodyHeight / 2);
+                console.log(halfPage);
                 let windowY = window.scrollY;
-                let showPosition = 2500;
-                if (windowY >= showPosition) bottomOverlay.classList.add("_active"); else bottomOverlay.classList.remove("_active");
+                if (windowY > halfPage) bottomOverlay.classList.add("_active"); else bottomOverlay.classList.remove("_active");
             }
-            closeOverlays.forEach((closeOverlay => {
-                closeOverlay.addEventListener("click", (function(e) {
-                    e.preventDefault();
-                    introOverlay.classList.add("_close");
-                    bottomOverlay.classList.add("_close");
-                    introButton.classList.add("_active");
-                }));
-            }));
         }
         const minutes = document.getElementById("minutes");
         const seconds = document.getElementById("seconds");
