@@ -1527,9 +1527,10 @@ body::after {
 .item-card__link {
   position: relative;
   z-index: 2;
-  color: #bf0024;
+  color: #fff;
   min-width: 120px;
-  background-color: #fff;
+  background-color: transparent;
+  border: 3px solid #dc0e7f;
 }
 
 .why__content {
@@ -1556,7 +1557,8 @@ body::after {
 }
 
 .why__image img {
-  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .info-why__articel {
@@ -1580,7 +1582,10 @@ body::after {
 }
 
 .image-left {
-  max-width: 50%;
+  width: 50%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
   float: left;
   margin: 0 20px 10px 0;
   border-radius: 20px;
@@ -1591,7 +1596,10 @@ body::after {
 }
 
 .image-right {
-  max-width: 50%;
+  width: 50%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
   float: right;
   margin: 0 0 10px 20px;
   border-radius: 20px;
@@ -1850,27 +1858,14 @@ body::after {
           transform: translate(0, 0);
 }
 
-.item-testimonials:nth-of-type(n) .item-testimonials__image {
-  -webkit-box-shadow: 0px 0px 30px rgba(191, 0, 35, 0.6);
-          box-shadow: 0px 0px 30px rgba(191, 0, 35, 0.6);
-}
-
-.item-testimonials:nth-of-type(2n) .item-testimonials__image {
-  -webkit-box-shadow: 0px 0px 30px rgba(255, 255, 0, 0.6);
-          box-shadow: 0px 0px 30px rgba(255, 255, 0, 0.6);
-}
-
-.item-testimonials:nth-of-type(3n) .item-testimonials__image {
-  -webkit-box-shadow: 0px 0px 30px rgba(58, 194, 253, 0.6);
-          box-shadow: 0px 0px 30px rgba(58, 194, 253, 0.6);
-}
-
 .item-testimonials__image {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   overflow: hidden;
   position: relative;
+  -webkit-box-shadow: 0px 0px 30px rgba(220, 14, 127, 0.5);
+          box-shadow: 0px 0px 30px rgba(220, 14, 127, 0.5);
 }
 
 .item-testimonials__image img {
@@ -2246,7 +2241,7 @@ body::after {
   max-width: 500px;
   position: fixed;
   z-index: 50;
-  right: -100%;
+  right: -200%;
   bottom: 80px;
   -webkit-transition: right 0.5s ease 0s;
   transition: right 0.5s ease 0s;
@@ -4432,11 +4427,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
 
   .image-left {
-    max-width: 100%;
+    width: 100%;
   }
 
   .image-right {
-    max-width: 100%;
+    width: 100%;
   }
 
   .testimonials__button {
@@ -5162,7 +5157,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
   .item-card__link:hover {
     color: #bf0024;
-    background-color: #eee;
+    background-color: #fff;
   }
 
   .slide-apartment:hover .slide-apartment__image img {
