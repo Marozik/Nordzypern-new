@@ -623,7 +623,7 @@ body::after {
 }
 
 .header__logo img {
-  max-width: 100%;
+  width: 100%;
   height: 100%;
 }
 
@@ -1114,7 +1114,7 @@ body::after {
 
 .video-form__player-control img {
   max-width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .form-zoom__title {
@@ -1233,89 +1233,6 @@ body::after {
     -webkit-box-shadow: 0 0 7px 25px rgba(60, 124, 152, 0);
             box-shadow: 0 0 7px 25px rgba(60, 124, 152, 0);
   }
-}
-
-.video__content {
-  opacity: 0;
-  -webkit-transform: translate(-100px, 0);
-      -ms-transform: translate(-100px, 0);
-          transform: translate(-100px, 0);
-  -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.video__content._watcher-view {
-  opacity: 1;
-  -webkit-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
-          transform: translate(0, 0);
-}
-
-.video__title {
-  text-align: center;
-}
-
-.video__button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 10px;
-}
-
-.video__media {
-  position: relative;
-  opacity: 0;
-  -webkit-transform: translate(0, 70px);
-      -ms-transform: translate(0, 70px);
-          transform: translate(0, 70px);
-  -webkit-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
-  width: 100%;
-  padding-bottom: 56%;
-}
-
-.video__media._watcher-view {
-  opacity: 1;
-  -webkit-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
-          transform: translate(0, 0);
-}
-
-.video__media:not(:last-child) {
-  margin-bottom: 30px;
-}
-
-.video__media iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.video__media::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  right: -30%;
-  top: -10%;
-  opacity: 0.1;
-  background: url(../img/dots.svg) no-repeat;
 }
 
 .about-cyprus__title {
@@ -1437,7 +1354,8 @@ body::after {
 }
 
 .appointment__image img {
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   -webkit-filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.25));
           filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.25));
 }
@@ -1558,7 +1476,7 @@ body::after {
 
 .why__image img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .info-why__articel {
@@ -1583,7 +1501,7 @@ body::after {
 
 .image-left {
   width: 50%;
-  height: auto;
+  height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
   float: left;
@@ -1592,7 +1510,6 @@ body::after {
   overflow: hidden;
   -webkit-box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
-  max-height: 300px;
 }
 
 .image-right {
@@ -3503,25 +3420,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
             flex: 0 0 50%;
   }
 
-  .video__container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-
-  .video__content {
-    padding-right: 20px;
-  }
-
-  .video__body {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 50%;
-            flex: 0 0 50%;
-  }
-
   .appointment__content {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 60%;
@@ -3817,10 +3715,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: 1.25rem;
   }
 
-  .video__title {
-    margin-bottom: 1.875rem;
-  }
-
   .about-cyprus__title {
     margin-bottom: 2.5rem;
   }
@@ -4108,10 +4002,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: 1.125rem;
   }
 
-  .video__title {
-    margin-bottom: 1.25rem;
-  }
-
   .about-cyprus__title {
     margin-bottom: 1.25rem;
   }
@@ -4262,10 +4152,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     margin-bottom: 40px;
   }
 
-  .video__content {
-    margin-bottom: 20px;
-  }
-
   .about-cyprus__list {
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
@@ -4297,6 +4183,16 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
   .why__content {
     margin-bottom: 20px;
+  }
+
+  .image-left {
+    height: 350px;
+    width: 100%;
+  }
+
+  .image-right {
+    height: 350px;
+    width: 100%;
   }
 
   .quote__body {
@@ -4427,11 +4323,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
 
   .image-left {
-    width: 100%;
+    height: 200px;
   }
 
   .image-right {
-    width: 100%;
+    height: 200px;
   }
 
   .testimonials__button {
@@ -4837,18 +4733,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 @supports not (font-size: clamp( 1.125rem , 1.0805555556rem  +  0.2222222222vw , 1.25rem )) {
     .intro__text p {
       font-size: calc(1.125rem + 0.125 * (100vw - 20rem) / 56.25);
-    }
-}
-
-@supports (margin-bottom: clamp( 1.25rem , 1.0277777778rem  +  1.1111111111vw , 1.875rem )) {
-    .video__title {
-      margin-bottom: clamp( 1.25rem , 1.0277777778rem  +  1.1111111111vw , 1.875rem );
-    }
-}
-
-@supports not (margin-bottom: clamp( 1.25rem , 1.0277777778rem  +  1.1111111111vw , 1.875rem )) {
-    .video__title {
-      margin-bottom: calc(1.25rem + 0.625 * (100vw - 20rem) / 56.25);
     }
 }
 
