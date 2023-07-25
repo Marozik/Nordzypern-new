@@ -2225,6 +2225,7 @@ body::after {
 }
 
 .second-page__footer {
+  padding-top: 0px;
   background-color: transparent;
 }
 
@@ -2254,12 +2255,12 @@ body::after {
 
 .banner__body {
   width: 80px;
-  padding: 10px 10px 75px;
+  padding: 0px 10px 75px;
   text-align: center;
   color: #fff;
   position: absolute;
   top: 0;
-  right: 50px;
+  right: 60px;
   z-index: 20;
   -webkit-transform: translate(0, -100%);
       -ms-transform: translate(0, -100%);
@@ -2324,10 +2325,15 @@ body::after {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 100px 0 30px 0;
+  padding: 20px 0 30px 0;
 }
 
 .registration__container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  height: 100%;
+  max-width: 1200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2540,8 +2546,8 @@ body::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 40px;
-  font-size: 18px;
+  gap: 30px;
+  font-size: 17px;
   font-weight: 700;
   color: #000;
 }
@@ -2560,9 +2566,9 @@ body::after {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  -webkit-transform: scale(1.25);
-      -ms-transform: scale(1.25);
-          transform: scale(1.25);
+  -webkit-transform: scale(1.22);
+      -ms-transform: scale(1.22);
+          transform: scale(1.22);
 }
 
 .timer__circle::before {
@@ -2648,7 +2654,7 @@ body::after {
   content: "Minuten";
   position: absolute;
   bottom: -20px;
-  font-size: 12px;
+  font-size: 11px;
   color: #000;
   font-weight: normal;
 }
@@ -2661,7 +2667,7 @@ body::after {
   content: "Sekunden";
   position: absolute;
   bottom: -20px;
-  font-size: 12px;
+  font-size: 11px;
   color: #000;
   font-weight: normal;
 }
@@ -4241,7 +4247,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
   .second-page__footer {
     padding-bottom: 120px;
-    padding-top: 0px;
   }
 
   .second-page__footer .list-footer__link {
@@ -4260,8 +4265,13 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: 21px;
   }
 
+  .registration__title {
+    margin-bottom: 10px;
+  }
+
   .registration__subtitle {
     font-size: 21px;
+    font-size: 19px;
   }
 
   .registration__text {
@@ -4357,7 +4367,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
 
   .registration {
-    padding-top: 190px;
+    padding-top: 170px;
   }
 }
 
