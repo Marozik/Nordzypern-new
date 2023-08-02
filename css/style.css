@@ -3129,6 +3129,8 @@ body::after {
 
 .watch__play-button {
   pointer-events: none;
+  -webkit-animation: scale-button 1s ease alternate infinite;
+          animation: scale-button 1s ease alternate infinite;
 }
 
 .watch__play-button._close {
@@ -3348,8 +3350,6 @@ body::after {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  -webkit-animation: scale-button 1s ease alternate infinite;
-          animation: scale-button 1s ease alternate infinite;
 }
 
 .player-button.watch__pause-button {
