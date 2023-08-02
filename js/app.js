@@ -5710,7 +5710,7 @@ PERFORMANCE OF THIS SOFTWARE.
         if (wistiaVideo) wistiaVideo.addEventListener("click", (function(e) {
             e.preventDefault();
             videoCover.classList.add("_close");
-            if (window.innerWidth > 767) playButton.classList.toggle("_close"); else playButton.classList.add("_close");
+            if (window.innerWidth > 767 && !"ontouchstart" in document.documentElement) playButton.classList.toggle("_close"); else playButton.classList.add("_close");
             pauseButton.classList.toggle("_active");
         }));
         const minutes = document.getElementById("minutes");
