@@ -5707,23 +5707,24 @@ PERFORMANCE OF THIS SOFTWARE.
         const pauseButton = document.querySelector(".watch__pause-button");
         const wistiaVideo = document.querySelector(".watch__wistia");
         const videoCover = document.querySelector(".watch__cover");
+        const isTouchSupported = "ontouchstart" in window || window.navigator.maxTouchPoints;
         if (wistiaVideo) wistiaVideo.addEventListener("click", (function(e) {
             e.preventDefault();
             videoCover.classList.add("_close");
-            if (window.innerWidth > 767 && !"ontouchstart" in document.documentElement) playButton.classList.toggle("_close"); else playButton.classList.add("_close");
-            pauseButton.classList.toggle("_active");
+            if (window.innerWidth > 767) {
+                playButton.classList.toggle("_close");
+                playButton.classList.toggle("_before");
+                pauseButton.classList.toggle("_active");
+            } else if (isTouchSupported) playButton.classList.add("_close");
         }));
         const minutes = document.getElementById("minutes");
         const seconds = document.getElementById("seconds");
-        document.getElementById("days-circle");
-        document.getElementById("hours-circle");
         const minutesCircle = document.getElementById("minutes-circle");
         const secondsCircle = document.getElementById("seconds-circle");
         if (minutes) {
             const minutesValue = parseFloat(minutes.getAttribute("data-minutes"));
             const startingMinutes = minutesValue;
             let time = startingMinutes * 60;
-            minutesCircle.style.animationDuration = `${time}` + "s";
             const countdownMinutes = minutes;
             const countdownSeconds = seconds;
             setInterval(updateCounddown, 1e3);
@@ -5733,69 +5734,16 @@ PERFORMANCE OF THIS SOFTWARE.
                 secondsOutput = secondsOutput < minutesValue ? "0" + secondsOutput : secondsOutput;
                 countdownMinutes.innerHTML = `${minutesOutput}`;
                 countdownSeconds.innerHTML = `${secondsOutput}`;
+                minutesCircle.style.strokeDashoffset = 113 - 113 * minutesOutput / 10;
+                secondsCircle.style.strokeDashoffset = 113 - 113 * secondsOutput / 60;
                 time--;
                 if (time < 0) {
                     minutes.textContent = "0";
                     seconds.textContent = "0";
-                    minutesCircle.style.animationDuration = "0s";
-                    secondsCircle.style.animationDuration = "0s";
                     clearInterval(updateCounddown);
                     return;
                 }
             }
-        }
-        const bigTimer = document.getElementById("big-timer");
-        if (bigTimer) {
-            function getTimeRemaining(endtime) {
-                let t = Date.parse(endtime) - Date.parse(new Date);
-                const seconds = Math.floor(t / 1e3 % 60);
-                const minutes = Math.floor(t / 1e3 / 60 % 60);
-                const hours = Math.floor(t / (1e3 * 60 * 60) % 24);
-                const days = Math.floor(t / (1e3 * 60 * 60 * 24));
-                return {
-                    days,
-                    hours,
-                    minutes,
-                    seconds
-                };
-            }
-            function initializeClock(id, endtime) {
-                const demoDays = document.getElementById("demo-days");
-                const demoHours = document.getElementById("demo-hours");
-                const demoMinutes = document.getElementById("demo-minutes");
-                const demoSeconds = document.getElementById("demo-seconds");
-                function updateClock() {
-                    let t = getTimeRemaining(endtime);
-                    demoDays.innerHTML = t.days;
-                    demoHours.innerHTML = t.hours;
-                    demoMinutes.innerHTML = t.minutes;
-                    demoSeconds.innerHTML = t.seconds;
-                    localStorage.setItem("countDown", JSON.stringify(t));
-                    const daysCircle = document.getElementById("days-circle");
-                    const hoursCircle = document.getElementById("hours-circle");
-                    const minutesCircle = document.getElementById("minutes-circle");
-                    const secondsCircle = document.getElementById("seconds-circle");
-                    secondsCircle.style.animationDuration = 60 + "s";
-                    secondsCircle.style.animationDelay = 0 + "s";
-                    minutesCircle.style.animationDuration = `${t.minutes}` * 60 + "s";
-                    minutesCircle.style.animationDelay = 0 + "s";
-                    hoursCircle.style.animationDuration = `${t.minutes}` * (60 * 60) + "s";
-                    hoursCircle.style.animationDelay = 0 + "s";
-                    daysCircle.style.animationDuration = `${t.minutes}` * (60 * 60 * 24) + "s";
-                    daysCircle.style.animationDelay = 0 + "s";
-                    if (t <= 0) {
-                        clearInterval(timeinterval);
-                        demoDays.textContent = "0";
-                        demoHours.textContent = "0";
-                        demoMinutes.textContent = "0";
-                        demoSeconds.textContent = "0";
-                    }
-                }
-                updateClock();
-                let timeinterval = setInterval(updateClock, 1e3);
-            }
-            let deadline = new Date(Date.parse(new Date) + 3 * 24 * 60 * 60 * 1e3);
-            initializeClock("clockdiv", deadline);
         }
     }
     window["FLS"] = true;

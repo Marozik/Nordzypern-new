@@ -4,6 +4,8 @@
 
 @import url(https://fonts.googleapis.com/css?family=Caveat:regular&display=swap);
 
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:regular,700&display=swap);
+
 @charset "UTF-8";
 
 @font-face {
@@ -375,6 +377,13 @@ body::after {
           box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+.watch-popup .form-zoom__label_message {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  left: 15px;
+}
+
 .watch-popup .form-zoom__label:not(:last-child) {
   margin-bottom: 20px;
 }
@@ -382,7 +391,7 @@ body::after {
 .watch-popup .form-zoom__label::before {
   content: "";
   position: absolute;
-  left: 20px;
+  left: 15px;
   top: 50%;
   -webkit-transform: translate(0, -50%);
       -ms-transform: translate(0, -50%);
@@ -410,10 +419,6 @@ body::after {
 
 .watch-popup .form-zoom__label_phone::before {
   content: "📞";
-}
-
-.watch-popup .form-zoom__label_whatsapp::before {
-  content: "💬";
 }
 
 .watch-popup .form-zoom__label_agree {
@@ -457,6 +462,75 @@ body::after {
 
 .watch-popup .form-zoom__link {
   text-decoration: underline;
+}
+
+.watch-popup .form-zoom__line-message {
+  position: relative;
+  -webkit-box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.watch-popup .form-zoom__line-message::before {
+  content: "💬";
+  position: absolute;
+  z-index: 10;
+  left: 15px;
+  top: 10px;
+  pointer-events: none;
+}
+
+.watch-popup .form-zoom__textarea {
+  width: 100%;
+  outline: none;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  padding: 12px 10px 12px 43px;
+  -webkit-transition: border 0.3s ease 0s;
+  transition: border 0.3s ease 0s;
+  font-weight: 600;
+  min-height: 80px;
+  max-height: 200px;
+  resize: vertical;
+  border: 2px solid #3d7c98;
+  position: relative;
+  display: block;
+}
+
+.watch-popup .form-zoom__textarea:focus {
+  border: 2px solid #3ac4ff;
+}
+
+.watch-popup .form-zoom__textarea::-webkit-input-placeholder {
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.watch-popup .form-zoom__textarea::-moz-placeholder {
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.watch-popup .form-zoom__textarea:-ms-input-placeholder {
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.watch-popup .form-zoom__textarea::-ms-input-placeholder {
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.watch-popup .form-zoom__textarea::placeholder {
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .watch-popup .popup__description {
@@ -2363,6 +2437,7 @@ body::after {
 }
 
 .second-page {
+  font-family: "Roboto Condensed";
   background: transparent linear-gradient(242deg, #c7c7c7 0, #efefef 14%, #fff 50%, #e0e0e0 87%, #c7c7c7 100%) 0 0;
   position: relative;
   min-height: 100vh;
@@ -2750,7 +2825,7 @@ body::after {
 
 .timer__circle svg circle {
   stroke-dasharray: 113px;
-  stroke-dashoffset: 113px;
+  stroke-dashoffset: 0px;
   stroke-width: 4px;
   stroke: #3d7c98;
   fill: none;
@@ -2759,10 +2834,6 @@ body::after {
   -webkit-transform-origin: center;
       -ms-transform-origin: center;
           transform-origin: center;
-}
-
-.loaded .timer__circle svg circle {
-  animation: countdown 60s linear infinite reverse forwards 2s;
 }
 
 .timer__days {
@@ -2783,26 +2854,6 @@ body::after {
 .timer__seconds {
   position: relative;
   z-index: 2;
-}
-
-@-webkit-keyframes countdown {
-  from {
-    stroke-dashoffset: 113px;
-  }
-
-  to {
-    stroke-dashoffset: 0px;
-  }
-}
-
-@keyframes countdown {
-  from {
-    stroke-dashoffset: 113px;
-  }
-
-  to {
-    stroke-dashoffset: 0px;
-  }
 }
 
 .circle-days {
@@ -2859,6 +2910,7 @@ body::after {
 
 .wrapper-confirm,
 .wrapper-watch {
+  font-family: "Roboto Condensed";
   background: transparent linear-gradient(242deg, #c7c7c7 0, #efefef 14%, #fff 50%, #e0e0e0 87%, #c7c7c7 100%) 0 0;
 }
 
@@ -3073,10 +3125,11 @@ body::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 30px 0 0 0;
 }
 
 .watch__container {
-  max-width: 900px;
+  max-width: 750px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3090,11 +3143,13 @@ body::after {
 }
 
 .watch__title {
+  max-width: 900px;
   text-align: center;
   font-size: 30px;
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 30px;
+  padding: 0 15px;
 }
 
 .watch__video {
@@ -3104,6 +3159,14 @@ body::after {
   -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.075), 0 4px 16px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.075), 0 4px 16px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
+}
+
+.watch__video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .watch__wistia {
@@ -3131,9 +3194,29 @@ body::after {
   pointer-events: none;
   -webkit-animation: scale-button 1s ease alternate infinite;
           animation: scale-button 1s ease alternate infinite;
+  -webkit-transition: background-color 0.3s ease 0s;
+  transition: background-color 0.3s ease 0s;
+  position: relative;
 }
 
 .watch__play-button._close {
+  display: none;
+}
+
+.watch__play-button._before::before {
+  content: "Abspielen";
+  display: none;
+  position: absolute;
+  top: -120%;
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.watch__play-again-button {
   display: none;
 }
 

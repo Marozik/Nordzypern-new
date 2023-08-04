@@ -9,7 +9,7 @@
 	" />
 	<meta name="keywords" content="Nordzypern, Investment, Nordzypern Immobilien, Seaviewtowers, Seaviewtowers Projekt, Nordzypern relocation, Nordzypern auswandern" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230802194733" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20230804055702" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -53,11 +53,12 @@
 				</div>
 			</div>
 			<section class="watch__content">
+				<h1 class="watch__title">Der einfachste Verkaufsprozess der Welt (Zum Starten ins Video klicken)</h1>
 				<div class="watch__container">
-					<h1 class="watch__title">Der einfachste Verkaufsprozess der Welt (Zum Starten ins Video klicken)</h1>
 					<div class="watch__video">
 						<!-- <iframe
-                src="https://fast.wistia.net/embed/iframe/rw63bxq8t9?"
+                id="video-iframe"
+                src="https://fast.wistia.net/embed/iframe/rw63bxq8t9?videoFoam=true"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen=""></iframe> -->
 						<div class="watch__wistia wistia_embed wistia_async_rw63bxq8t9">&nbsp;</div>
@@ -81,7 +82,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="watch__play-button player-button">
+						<div class="watch__play-button player-button _before">
 							<div class="player-button__triangle"></div>
 						</div>
 						<div class="watch__pause-button player-button">
@@ -90,7 +91,6 @@
 						</div>
 					</div>
 					<a href="#" data-popup="#watch-reg" class="watch__button button">Hier Klicken</a>
-					<div id="countdown"></div>
 				</div>
 			</section>
 		</main>
@@ -110,8 +110,96 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://fast.wistia.com/embed/medias/rw63bxq8t9.jsonp?_v=20230802194733" async></script>
-	<script src="https://fast.wistia.com/assets/external/E-v1.js?_v=20230802194733" async></script>
+	<script src="https://fast.wistia.com/embed/medias/rw63bxq8t9.jsonp?_v=20230804055702" async></script>
+	<script src="https://fast.wistia.com/assets/external/E-v1.js?_v=20230804055702" async></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js?_v=20230804055702"></script>
+	<script>
+		function set_timer(block, time_end, function_result) {
+			let timer,
+				start,
+				end,
+				_second = 1000,
+				_minute = _second * 60,
+				_hour = _minute * 60,
+				_day = _hour * 24,
+				set_storage = () => {
+					if (!localStorage.getItem("timer_start_" + set_timer.count)) {
+						let now = new Date();
+
+						localStorage.setItem("timer_start_" + set_timer.count, Math.round(now.getTime() / 1000));
+					}
+				},
+				update_settings = () => {
+					start = end = localStorage.getItem("timer_start_" + set_timer.count);
+
+					end = new Date(+end * 1000);
+					end.setDate(end.getDate() + time_end[0]);
+					end.setHours(end.getHours() + time_end[1]);
+					end.setMinutes(end.getMinutes() + time_end[2]);
+					end.setSeconds(end.getSeconds() + time_end[3]);
+					end = +end;
+				},
+				get_timer = function(distance) {
+					let days = Math.floor(distance / _day),
+						hours = Math.floor((distance % _day) / _hour),
+						minutes = Math.floor((distance % _hour) / _minute),
+						seconds = Math.floor((distance % _minute) / _second);
+					return [days, hours, minutes, seconds];
+				},
+				set_values = () => {
+					let now = new Date(),
+						distance = end - +now;
+					let daysDemo = document.querySelector(".timer__days");
+					let hoursDemo = document.querySelector(".timer__hours");
+					let minutesDemo = document.querySelector(".timer__minutes");
+					let secondsDemo = document.querySelector(".timer__seconds");
+
+					const daysCircle = document.getElementById("days-circle");
+					const hoursCircle = document.getElementById("hours-circle");
+					const minutesCircle = document.getElementById("minutes-circle");
+					const secondsCircle = document.getElementById("seconds-circle");
+					if (distance <= 0) {
+						// function_result(block);
+						// clearInterval(timer);
+						daysDemo.innerHTML = "0";
+						hoursDemo.innerHTML = "0";
+						minutesDemo.innerHTML = "0";
+						secondsDemo.innerHTML = "0";
+					} else {
+						let timer = get_timer(distance);
+						//   markup = create_markup(timer);
+						daysDemo.innerHTML = timer[0];
+						hoursDemo.innerHTML = timer[1];
+						minutesDemo.innerHTML = timer[2];
+						secondsDemo.innerHTML = timer[3];
+
+						const daysCircle = document.getElementById("days-circle");
+						const hoursCircle = document.getElementById("hours-circle");
+						const minutesCircle = document.getElementById("minutes-circle");
+						const secondsCircle = document.getElementById("seconds-circle");
+
+						daysCircle.style.strokeDashoffset = 113 - (113 * timer[0]) / 2;
+						hoursCircle.style.strokeDashoffset = 113 - (113 * timer[1]) / 24;
+						minutesCircle.style.strokeDashoffset = 113 - (113 * timer[2]) / 60;
+						secondsCircle.style.strokeDashoffset = 113 - (113 * timer[3]) / 60;
+					}
+				},
+				init = () => {
+					set_timer.count == undefined ? (set_timer.count = 1) : set_timer.count++;
+
+					set_storage();
+					update_settings();
+
+					timer = setInterval(set_values, 1000);
+
+					return timer;
+				};
+
+			return init();
+		}
+
+		set_timer($(".block"), [2, 0, 0, 0], function(block) {});
+	</script>
 	<div id="zoom-reg" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
 			<div class="popup__content">
@@ -178,8 +266,10 @@
 					<label for="user-phone" class="form-zoom__label form-zoom__label_phone">
 						<input type="tel" id="user-phone" name="user-phone" placeholder="Deine Telefonnummer" required class="form-zoom__input" />
 					</label>
-					<label for="user-whatsapp" class="form-zoom__label form-zoom__label_whatsapp">
-						<input type="tel" id="user-whatsapp" name="user-whatsapp" placeholder="Deine Whats App" class="form-zoom__input" />
+					<div class="form-zoom__line-message">
+						<textarea class="form-zoom__textarea" placeholder="Beste Erreichbarkeit (optional)" name="user-message"></textarea>
+					</div>
+
 					</label>
 					<div class="form-zoom__line">
 						<input type="checkbox" id="user-agree" name="user-agree" required class="form-zoom__input form-zoom__input_checkbox" />
@@ -192,7 +282,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230802194733"></script>
+	<script src="js/app.min.js?_v=20230804055702"></script>
 </body>
 
 </html>
