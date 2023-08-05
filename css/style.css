@@ -3108,6 +3108,62 @@ body::after {
   font-weight: 700;
 }
 
+.player-button {
+  width: 60px;
+  height: 35px;
+  background-color: #3c7c98;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.player-button__triangle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  background: url(../img/icons/play-button.svg) no-repeat;
+  background-size: contain;
+}
+
+.player-button__line {
+  width: 6px;
+  height: 60%;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+.player-button__restart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 25px;
+  height: 25px;
+  background: url(../img/icons/restart.svg) no-repeat;
+  background-size: contain;
+}
+
 .watch {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -3191,21 +3247,26 @@ body::after {
 }
 
 .watch__play-button {
+  display: none;
+}
+
+.watch__play-button.player-button__triangle {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.watch__play-button._active {
   pointer-events: none;
-  -webkit-animation: scale-button 1s ease alternate infinite;
-          animation: scale-button 1s ease alternate infinite;
-  -webkit-transition: background-color 0.3s ease 0s;
-  transition: background-color 0.3s ease 0s;
-  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease 0s;
+  transition: opacity 0.5s ease 0s;
 }
 
-.watch__play-button._close {
-  display: none;
-}
-
-.watch__play-button._before::before {
+.watch__play-button::before {
   content: "Abspielen";
-  display: none;
   position: absolute;
   top: -120%;
   background-color: rgb(0, 0, 0);
@@ -3216,8 +3277,70 @@ body::after {
   font-size: 16px;
 }
 
-.watch__play-again-button {
+.watch__start-button {
+  pointer-events: none;
+  -webkit-animation: scale-button 1s ease alternate infinite;
+          animation: scale-button 1s ease alternate infinite;
+  -webkit-transition: background-color 0.3s ease 0s;
+  transition: background-color 0.3s ease 0s;
+}
+
+.watch__start-button._close {
   display: none;
+}
+
+.watch__start-button.player-button__triangle {
+  -webkit-animation: scale-button 1s ease alternate infinite;
+          animation: scale-button 1s ease alternate infinite;
+}
+
+.watch__pause-button {
+  display: none;
+}
+
+.watch__pause-button::before {
+  content: "Pause";
+  position: absolute;
+  top: -120%;
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.watch__pause-button._active {
+  pointer-events: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease 0s;
+  transition: opacity 0.5s ease 0s;
+}
+
+.watch__restart-button {
+  display: none;
+}
+
+.watch__restart-button._active {
+  pointer-events: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.watch__restart-button::before {
+  content: "Restart";
+  position: absolute;
+  top: -120%;
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .watch__button {
@@ -3410,77 +3533,6 @@ body::after {
     -webkit-transform: translate(-50%, -50%) scale(0.7);
             transform: translate(-50%, -50%) scale(0.7);
   }
-}
-
-.player-button {
-  width: 60px;
-  height: 35px;
-  background-color: #3c7c98;
-  border-radius: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 5px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.player-button.watch__pause-button {
-  display: none;
-}
-
-.player-button.watch__pause-button::before {
-  content: "Pause";
-  position: absolute;
-  top: -120%;
-  background-color: rgb(0, 0, 0);
-  color: #fff;
-  padding: 8px 10px;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.player-button.watch__pause-button._active {
-  pointer-events: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  opacity: 0;
-  -webkit-transition: opacity 0.5s ease 0s;
-  transition: opacity 0.5s ease 0s;
-}
-
-.player-button__triangle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  width: 18px;
-  height: 18px;
-  background: url(../img/icons/play-button.svg) no-repeat;
-  background-size: contain;
-  -webkit-animation: scale-button 1s ease alternate infinite;
-          animation: scale-button 1s ease alternate infinite;
-}
-
-.player-button__line {
-  width: 6px;
-  height: 60%;
-  background-color: #fff;
-  border-radius: 2px;
 }
 
 @-webkit-keyframes scale-button {
@@ -5250,6 +5302,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     font-size: 14px;
   }
 
+  .player-button {
+    width: 50px;
+    height: 30px;
+  }
+
   .watch__title {
     font-size: 21px;
   }
@@ -5279,11 +5336,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
   .cover-watch__text {
     font-size: 20px;
-  }
-
-  .player-button {
-    width: 50px;
-    height: 30px;
   }
 
   .top-watch__title {
@@ -6168,6 +6220,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
 
   .watch__video:hover .watch__pause-button._active {
     opacity: 1;
+  }
+
+  .watch__video:hover .watch__play-button._active {
+    opacity: 1;
+  }
+
+  .watch__play-button._active:hover {
+    background-color: #fff;
   }
 
   .watch__button:hover {

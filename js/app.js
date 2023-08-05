@@ -5703,19 +5703,16 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (windowY > halfPage) bottomOverlay.classList.add("_active"); else bottomOverlay.classList.remove("_active");
             }
         }
-        const playButton = document.querySelector(".watch__play-button");
-        const pauseButton = document.querySelector(".watch__pause-button");
+        const startButton = document.querySelector(".watch__start-button");
+        document.querySelector(".watch__play-button");
+        document.querySelector(".watch__pause-button");
         const wistiaVideo = document.querySelector(".watch__wistia");
         const videoCover = document.querySelector(".watch__cover");
-        const isTouchSupported = "ontouchstart" in window || window.navigator.maxTouchPoints;
+        "ontouchstart" in window || window.navigator.maxTouchPoints;
         if (wistiaVideo) wistiaVideo.addEventListener("click", (function(e) {
             e.preventDefault();
             videoCover.classList.add("_close");
-            if (window.innerWidth > 767) {
-                playButton.classList.toggle("_close");
-                playButton.classList.toggle("_before");
-                pauseButton.classList.toggle("_active");
-            } else if (isTouchSupported) playButton.classList.add("_close");
+            startButton.classList.add("_close");
         }));
         const minutes = document.getElementById("minutes");
         const seconds = document.getElementById("seconds");
