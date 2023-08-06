@@ -9,7 +9,7 @@
 	" />
 	<meta name="keywords" content="Nordzypern, Investment, Nordzypern Immobilien, Seaviewtowers, Seaviewtowers Projekt, Nordzypern relocation, Nordzypern auswandern" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230805060155" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20230806053856" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,7 +58,7 @@
 					<div class="watch__video">
 						<!-- rw63bxq8t9 -->
 						<!-- t8i6dcrt4d -->
-						<div class="watch__wistia wistia_embed wistia_async_rw63bxq8t9"></div>
+						<div class="watch__wistia wistia_embed wistia_async_t8i6dcrt4d"></div>
 						<div class="watch__cover cover-watch">
 							<div class="cover-watch__body">
 								<h2 class="cover-watch__title">Der <span>einfachste Funnel</span> der Welt</h2>
@@ -113,145 +113,166 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://fast.wistia.com/embed/medias/rw63bxq8t9.jsonp?_v=20230805060155" async></script>
-	<script src="https://fast.wistia.com/assets/external/E-v1.js?_v=20230805060155" async></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js?_v=20230805060155"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js?_v=20230806053856"></script>
 	<script>
-		function set_timer(block, time_end, function_result) {
-			let timer,
-				start,
-				end,
-				_second = 1000,
-				_minute = _second * 60,
-				_hour = _minute * 60,
-				_day = _hour * 24,
-				set_storage = () => {
-					if (!localStorage.getItem("timer_start_" + set_timer.count)) {
-						let now = new Date();
+		window.addEventListener("load", windowLoad);
 
-						localStorage.setItem("timer_start_" + set_timer.count, Math.round(now.getTime() / 1000));
-					}
-				},
-				update_settings = () => {
-					start = end = localStorage.getItem("timer_start_" + set_timer.count);
+		function windowLoad() {
+			function set_timer(block, time_end, function_result) {
+				let timer,
+					start,
+					end,
+					_second = 1000,
+					_minute = _second * 60,
+					_hour = _minute * 60,
+					_day = _hour * 24,
+					set_storage = () => {
+						if (!localStorage.getItem("timer_start_" + set_timer.count)) {
+							let now = new Date();
 
-					end = new Date(+end * 1000);
-					end.setDate(end.getDate() + time_end[0]);
-					end.setHours(end.getHours() + time_end[1]);
-					end.setMinutes(end.getMinutes() + time_end[2]);
-					end.setSeconds(end.getSeconds() + time_end[3]);
-					end = +end;
-				},
-				get_timer = function(distance) {
-					let days = Math.floor(distance / _day),
-						hours = Math.floor((distance % _day) / _hour),
-						minutes = Math.floor((distance % _hour) / _minute),
-						seconds = Math.floor((distance % _minute) / _second);
-					return [days, hours, minutes, seconds];
-				},
-				set_values = () => {
-					let now = new Date(),
-						distance = end - +now;
-					let daysDemo = document.querySelector(".timer__days");
-					let hoursDemo = document.querySelector(".timer__hours");
-					let minutesDemo = document.querySelector(".timer__minutes");
-					let secondsDemo = document.querySelector(".timer__seconds");
+							localStorage.setItem("timer_start_" + set_timer.count, Math.round(now.getTime() / 1000));
+						}
+					},
+					update_settings = () => {
+						start = end = localStorage.getItem("timer_start_" + set_timer.count);
 
-					const daysCircle = document.getElementById("days-circle");
-					const hoursCircle = document.getElementById("hours-circle");
-					const minutesCircle = document.getElementById("minutes-circle");
-					const secondsCircle = document.getElementById("seconds-circle");
-					if (distance <= 0) {
-						// function_result(block);
-						// clearInterval(timer);
-						daysDemo.innerHTML = "0";
-						hoursDemo.innerHTML = "0";
-						minutesDemo.innerHTML = "0";
-						secondsDemo.innerHTML = "0";
-					} else {
-						let timer = get_timer(distance);
-						//   markup = create_markup(timer);
-						daysDemo.innerHTML = timer[0];
-						hoursDemo.innerHTML = timer[1];
-						minutesDemo.innerHTML = timer[2];
-						secondsDemo.innerHTML = timer[3];
+						end = new Date(+end * 1000);
+						end.setDate(end.getDate() + time_end[0]);
+						end.setHours(end.getHours() + time_end[1]);
+						end.setMinutes(end.getMinutes() + time_end[2]);
+						end.setSeconds(end.getSeconds() + time_end[3]);
+						end = +end;
+					},
+					get_timer = function(distance) {
+						let days = Math.floor(distance / _day),
+							hours = Math.floor((distance % _day) / _hour),
+							minutes = Math.floor((distance % _hour) / _minute),
+							seconds = Math.floor((distance % _minute) / _second);
+						return [days, hours, minutes, seconds];
+					},
+					set_values = () => {
+						let now = new Date(),
+							distance = end - +now;
+						let daysDemo = document.querySelector(".timer__days");
+						let hoursDemo = document.querySelector(".timer__hours");
+						let minutesDemo = document.querySelector(".timer__minutes");
+						let secondsDemo = document.querySelector(".timer__seconds");
 
 						const daysCircle = document.getElementById("days-circle");
 						const hoursCircle = document.getElementById("hours-circle");
 						const minutesCircle = document.getElementById("minutes-circle");
 						const secondsCircle = document.getElementById("seconds-circle");
+						let timer = get_timer(distance);
 
-						const timeInSeconds = timer[1] * 60 * 60 + timer[2] * 60 + timer[3];
+						if (distance <= 0) {
+							// function_result(block);
+							// clearInterval(timer);
+							daysDemo.innerHTML = "0";
+							hoursDemo.innerHTML = "0";
+							minutesDemo.innerHTML = "0";
+							secondsDemo.innerHTML = "0";
+						} else {
+							//   markup = create_markup(timer);
+							daysDemo.innerHTML = timer[0];
+							hoursDemo.innerHTML = timer[1];
+							minutesDemo.innerHTML = timer[2];
+							secondsDemo.innerHTML = timer[3];
 
-						daysCircle.style.strokeDashoffset = 113 - (-113 * 86400) / timeInSeconds;
-						hoursCircle.style.strokeDashoffset = 113 - (113 * timer[1]) / 24;
-						minutesCircle.style.strokeDashoffset = 113 - (113 * timer[2]) / 60;
-						secondsCircle.style.strokeDashoffset = 113 - (113 * timer[3]) / 60;
-					}
-				},
-				init = () => {
-					set_timer.count == undefined ? (set_timer.count = 1) : set_timer.count++;
+							const daysCircle = document.getElementById("days-circle");
+							const hoursCircle = document.getElementById("hours-circle");
+							const minutesCircle = document.getElementById("minutes-circle");
+							const secondsCircle = document.getElementById("seconds-circle");
 
-					set_storage();
-					update_settings();
+							daysCircle.style.strokeDashoffset = 0;
+							// daysCircle.style.strokeDashoffset = 113 - (113 * timer[1]) / 24;
+							hoursCircle.style.strokeDashoffset = 113 - (113 * timer[1]) / 24;
+							minutesCircle.style.strokeDashoffset = 113 - (113 * timer[2]) / 60;
+							secondsCircle.style.strokeDashoffset = 113 - (113 * timer[3]) / 60;
+						}
+						if (timer[0] === 0) {
+							daysCircle.style.strokeDashoffset = 113;
+						}
+						if (timer[1] === 0) {
+							hoursCircle.style.strokeDashoffset = 113;
+						}
+						if (timer[2] === 0) {
+							minutesCircle.style.strokeDashoffset = 113;
+						}
+						if (timer[3] === 0) {
+							secondsCircle.style.strokeDashoffset = 113;
+						}
+					},
+					init = () => {
+						set_timer.count == undefined ? (set_timer.count = 1) : set_timer.count++;
 
-					timer = setInterval(set_values, 1000);
+						set_storage();
+						update_settings();
+						timer = setInterval(set_values, 1000);
 
-					return timer;
-				};
+						return timer;
+					};
 
-			return init();
+				return init();
+			}
+
+			set_timer($(".block"), [2, 0, 0, 0], function(block) {});
 		}
-
-		set_timer($(".block"), [2, 0, 0, 0], function(block) {});
 	</script>
+	<script src="https://fast.wistia.com/embed/medias/t8i6dcrt4d.jsonp?_v=20230806053856" async></script>
+	<script src="https://fast.wistia.com/assets/external/E-v1.js?_v=20230806053856" async></script>
 	<script>
-		const wistiaVideo = document.querySelector(".watch__wistia");
-		const playButton = document.querySelector(".watch__play-button");
-		const pauseButton = document.querySelector(".watch__pause-button");
-		const restartButton = document.querySelector(".watch__restart-button");
-		window._wq = window._wq || [];
-		_wq.push({
-			id: "rw63bxq8t9",
-			onReady(video) {
-				video.bind("play", function() {
-					pauseButton.classList.add("_active");
-					playButton.classList.remove("_active");
-				});
-				video.bind("pause", function() {
-					pauseButton.classList.remove("_active");
-					playButton.classList.add("_active");
-				});
-				video.bind("end", function() {
-					playButton.classList.remove("_active");
-					pauseButton.classList.remove("_active");
-					restartButton.classList.add("_active");
-				});
-				video.bind("play", function() {
-					restartButton.classList.remove("_active");
-				});
-			},
-		});
+		window.addEventListener("load", windowLoad);
+
+		function windowLoad() {
+			const wistiaVideo = document.querySelector(".watch__wistia");
+			const startButton = document.querySelector(".watch__start-button");
+			const playButton = document.querySelector(".watch__play-button");
+			const pauseButton = document.querySelector(".watch__pause-button");
+			const restartButton = document.querySelector(".watch__restart-button");
+			const videoCover = document.querySelector(".watch__cover");
+
+			window._wq = window._wq || [];
+			_wq.push({
+				id: "t8i6dcrt4d",
+				onReady(video) {
+					video.bind("play", function() {
+						pauseButton.classList.add("_active");
+						playButton.classList.remove("_active");
+					});
+					video.bind("pause", function() {
+						pauseButton.classList.remove("_active");
+						playButton.classList.add("_active");
+					});
+					video.bind("end", function() {
+						playButton.classList.remove("_active");
+						pauseButton.classList.remove("_active");
+						restartButton.classList.add("_active");
+					});
+					video.bind("play", function() {
+						restartButton.classList.remove("_active");
+					});
+					startButton.addEventListener("click", function(e) {
+						e.preventDefault;
+						video.play();
+						videoCover.classList.add("_close");
+						startButton.classList.add("_close");
+					});
+					playButton.addEventListener("click", function(e) {
+						e.preventDefault;
+						video.play();
+					});
+					pauseButton.addEventListener("click", function(e) {
+						e.preventDefault;
+						video.pause();
+					});
+					restartButton.addEventListener("click", function(e) {
+						e.preventDefault;
+						video.play();
+					});
+				},
+			});
+		}
 	</script>
-
-	<!-- <script>
-      const iframe = document.querySelector(".watch__vimeo iframe");
-      const player = new Vimeo.Player(iframe);
-      const playButton = document.querySelector(".vimeo__play-button");
-      const pauseButton = document.querySelector(".vimeo__pause-button");
-      const restartButton = document.querySelector(".vimeo__restart-button");
-
-      player.on("play", function () {
-        console.log("played the video!");
-        playButton.classList.remove("_active");
-        pauseButton.classList.add("_active");
-      });
-      player.on("pause", function () {
-        console.log("not played the video!");
-        playButton.classList.add("_active");
-        pauseButton.classList.remove("_active");
-      });
-    </script> -->
 	<div id="zoom-reg" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
 			<div class="popup__content">
@@ -334,7 +355,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230805060155"></script>
+	<script src="js/app.min.js?_v=20230806053856"></script>
 </body>
 
 </html>
