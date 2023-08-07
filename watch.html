@@ -9,7 +9,7 @@
 	" />
 	<meta name="keywords" content="Nordzypern, Investment, Nordzypern Immobilien, Seaviewtowers, Seaviewtowers Projekt, Nordzypern relocation, Nordzypern auswandern" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230806053856" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20230807034655" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -113,7 +113,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js?_v=20230806053856"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js?_v=20230807034655"></script>
 	<script>
 		window.addEventListener("load", windowLoad);
 
@@ -162,17 +162,18 @@
 						const hoursCircle = document.getElementById("hours-circle");
 						const minutesCircle = document.getElementById("minutes-circle");
 						const secondsCircle = document.getElementById("seconds-circle");
-						let timer = get_timer(distance);
 
 						if (distance <= 0) {
 							// function_result(block);
-							// clearInterval(timer);
+							clearInterval(timer);
 							daysDemo.innerHTML = "0";
 							hoursDemo.innerHTML = "0";
 							minutesDemo.innerHTML = "0";
 							secondsDemo.innerHTML = "0";
 						} else {
 							//   markup = create_markup(timer);
+							let timer = get_timer(distance);
+
 							daysDemo.innerHTML = timer[0];
 							hoursDemo.innerHTML = timer[1];
 							minutesDemo.innerHTML = timer[2];
@@ -184,21 +185,21 @@
 							const secondsCircle = document.getElementById("seconds-circle");
 
 							daysCircle.style.strokeDashoffset = 0;
-							// daysCircle.style.strokeDashoffset = 113 - (113 * timer[1]) / 24;
 							hoursCircle.style.strokeDashoffset = 113 - (113 * timer[1]) / 24;
 							minutesCircle.style.strokeDashoffset = 113 - (113 * timer[2]) / 60;
 							secondsCircle.style.strokeDashoffset = 113 - (113 * timer[3]) / 60;
 						}
-						if (timer[0] === 0) {
+
+						if (daysDemo.innerHTML == 0) {
 							daysCircle.style.strokeDashoffset = 113;
 						}
-						if (timer[1] === 0) {
+						if (hoursDemo.innerHTML == 0) {
 							hoursCircle.style.strokeDashoffset = 113;
 						}
-						if (timer[2] === 0) {
+						if (minutesDemo.innerHTML == 0) {
 							minutesCircle.style.strokeDashoffset = 113;
 						}
-						if (timer[3] === 0) {
+						if (secondsDemo.innerHTML == 0) {
 							secondsCircle.style.strokeDashoffset = 113;
 						}
 					},
@@ -218,8 +219,8 @@
 			set_timer($(".block"), [2, 0, 0, 0], function(block) {});
 		}
 	</script>
-	<script src="https://fast.wistia.com/embed/medias/t8i6dcrt4d.jsonp?_v=20230806053856" async></script>
-	<script src="https://fast.wistia.com/assets/external/E-v1.js?_v=20230806053856" async></script>
+	<script src="https://fast.wistia.com/embed/medias/t8i6dcrt4d.jsonp?_v=20230807034655" async></script>
+	<script src="https://fast.wistia.com/assets/external/E-v1.js?_v=20230807034655" async></script>
 	<script>
 		window.addEventListener("load", windowLoad);
 
@@ -355,7 +356,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230806053856"></script>
+	<script src="js/app.min.js?_v=20230807034655"></script>
 </body>
 
 </html>
