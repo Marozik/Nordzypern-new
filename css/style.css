@@ -3186,13 +3186,13 @@ body::after {
 
 .watch__top {
   opacity: 0;
-  -webkit-transform: translate(0, 50px);
-      -ms-transform: translate(0, 50px);
-          transform: translate(0, 50px);
-  -webkit-transition: opacity 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
-  transition: opacity 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
-  transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s;
-  transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
+  -webkit-transform: translate(0, -50px);
+      -ms-transform: translate(0, -50px);
+          transform: translate(0, -50px);
+  -webkit-transition: opacity 0.7s ease 1s, -webkit-transform 0.7s ease 1s;
+  transition: opacity 0.7s ease 1s, -webkit-transform 0.7s ease 1s;
+  transition: opacity 0.7s ease 1s, transform 0.7s ease 1s;
+  transition: opacity 0.7s ease 1s, transform 0.7s ease 1s, -webkit-transform 0.7s ease 1s;
 }
 
 .loaded .watch__top {
@@ -3225,20 +3225,12 @@ body::after {
   margin-bottom: 30px;
   padding: 0 15px;
   opacity: 0;
-  -webkit-transform: translate(0, 50px);
-      -ms-transform: translate(0, 50px);
-          transform: translate(0, 50px);
-  -webkit-transition: opacity 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
-  transition: opacity 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
-  transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s;
-  transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
+  -webkit-transition: opacity 0.7s ease 0.5s;
+  transition: opacity 0.7s ease 0.5s;
 }
 
 .loaded .watch__title {
   opacity: 1;
-  -webkit-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
-          transform: translate(0, 0);
 }
 
 .watch__video {
@@ -3252,10 +3244,10 @@ body::after {
   -webkit-transform: translate(0, 50px);
       -ms-transform: translate(0, 50px);
           transform: translate(0, 50px);
-  -webkit-transition: opacity 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
-  transition: opacity 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
-  transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s;
-  transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
+  -webkit-transition: opacity 0.7s ease 1s, -webkit-transform 0.7s ease 1s;
+  transition: opacity 0.7s ease 1s, -webkit-transform 0.7s ease 1s;
+  transition: opacity 0.7s ease 1s, transform 0.7s ease 1s;
+  transition: opacity 0.7s ease 1s, transform 0.7s ease 1s, -webkit-transform 0.7s ease 1s;
 }
 
 .loaded .watch__video {
@@ -3404,10 +3396,10 @@ body::after {
   -webkit-transform: translate(0, 50px);
       -ms-transform: translate(0, 50px);
           transform: translate(0, 50px);
-  -webkit-transition: opacity 0.7s ease 0.9s, background-color 0.3s ease 0s, color 0.3s ease 0s, -webkit-transform 0.7s ease 0.9s;
-  transition: opacity 0.7s ease 0.9s, background-color 0.3s ease 0s, color 0.3s ease 0s, -webkit-transform 0.7s ease 0.9s;
-  transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s, background-color 0.3s ease 0s, color 0.3s ease 0s;
-  transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s, background-color 0.3s ease 0s, color 0.3s ease 0s, -webkit-transform 0.7s ease 0.9s;
+  -webkit-transition: opacity 0.7s ease 1s, background-color 0.3s ease 0s, color 0.3s ease 0s, -webkit-transform 0.7s ease 1s;
+  transition: opacity 0.7s ease 1s, background-color 0.3s ease 0s, color 0.3s ease 0s, -webkit-transform 0.7s ease 1s;
+  transition: opacity 0.7s ease 1s, transform 0.7s ease 1s, background-color 0.3s ease 0s, color 0.3s ease 0s;
+  transition: opacity 0.7s ease 1s, transform 0.7s ease 1s, background-color 0.3s ease 0s, color 0.3s ease 0s, -webkit-transform 0.7s ease 1s;
 }
 
 .loaded .watch__button {
