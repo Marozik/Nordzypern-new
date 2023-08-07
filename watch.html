@@ -9,7 +9,7 @@
 	" />
 	<meta name="keywords" content="Nordzypern, Investment, Nordzypern Immobilien, Seaviewtowers, Seaviewtowers Projekt, Nordzypern relocation, Nordzypern auswandern" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230807034655" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20230807051744" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -113,7 +113,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js?_v=20230807034655"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js?_v=20230807051744"></script>
 	<script>
 		window.addEventListener("load", windowLoad);
 
@@ -219,8 +219,8 @@
 			set_timer($(".block"), [2, 0, 0, 0], function(block) {});
 		}
 	</script>
-	<script src="https://fast.wistia.com/embed/medias/t8i6dcrt4d.jsonp?_v=20230807034655" async></script>
-	<script src="https://fast.wistia.com/assets/external/E-v1.js?_v=20230807034655" async></script>
+	<script src="https://fast.wistia.com/embed/medias/t8i6dcrt4d.jsonp?_v=20230807051744" async></script>
+	<script src="https://fast.wistia.com/assets/external/E-v1.js?_v=20230807051744" async></script>
 	<script>
 		window.addEventListener("load", windowLoad);
 
@@ -253,6 +253,12 @@
 						restartButton.classList.remove("_active");
 					});
 					startButton.addEventListener("click", function(e) {
+						e.preventDefault;
+						video.play();
+						videoCover.classList.add("_close");
+						startButton.classList.add("_close");
+					});
+					wistiaVideo.addEventListener("click", function(e) {
 						e.preventDefault;
 						video.play();
 						videoCover.classList.add("_close");
@@ -356,7 +362,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230807034655"></script>
+	<script src="js/app.min.js?_v=20230807051744"></script>
 </body>
 
 </html>
