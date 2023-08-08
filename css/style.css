@@ -2934,6 +2934,54 @@ body::after {
   padding: 30px 0;
 }
 
+.confirm__progress-bar {
+  opacity: 0;
+  -webkit-transform: translate(0, -50px);
+      -ms-transform: translate(0, -50px);
+          transform: translate(0, -50px);
+  -webkit-transition: opacity 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
+  transition: opacity 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
+  transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s;
+  transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
+}
+
+.loaded .confirm__progress-bar {
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.confirm__top {
+  opacity: 0;
+  -webkit-transition: opacity 0.7s ease 0.5s, -webkit-transform 0.7s ease 0.5s;
+  transition: opacity 0.7s ease 0.5s, -webkit-transform 0.7s ease 0.5s;
+  transition: opacity 0.7s ease 0.5s, transform 0.7s ease 0.5s;
+  transition: opacity 0.7s ease 0.5s, transform 0.7s ease 0.5s, -webkit-transform 0.7s ease 0.5s;
+}
+
+.loaded .confirm__top {
+  opacity: 1;
+}
+
+.confirm__cards {
+  opacity: 0;
+  -webkit-transform: translate(0, 50px);
+      -ms-transform: translate(0, 50px);
+          transform: translate(0, 50px);
+  -webkit-transition: opacity 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
+  transition: opacity 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
+  transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s;
+  transition: opacity 0.7s ease 0.9s, transform 0.7s ease 0.9s, -webkit-transform 0.7s ease 0.9s;
+}
+
+.loaded .confirm__cards {
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
 .progress-bar {
   -ms-flex-item-align: stretch;
       -ms-grid-row-align: stretch;

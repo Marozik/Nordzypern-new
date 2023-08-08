@@ -5726,6 +5726,8 @@ PERFORMANCE OF THIS SOFTWARE.
                 if (time < 0) {
                     minutes.textContent = "0";
                     seconds.textContent = "0";
+                    minutesCircle.style.strokeDashoffset = 113;
+                    secondsCircle.style.strokeDashoffset = 113;
                     clearInterval(updateCounddown);
                     return;
                 }

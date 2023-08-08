@@ -9,7 +9,7 @@
 	" />
 	<meta name="keywords" content="Nordzypern, Investment, Nordzypern Immobilien, Seaviewtowers, Seaviewtowers Projekt, Nordzypern relocation, Nordzypern auswandern" />
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230807154635" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20230808041425" />
 	<link rel="shortcut icon" href="favicon.ico" />
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -113,7 +113,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js?_v=20230807154635"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js?_v=20230808041425"></script>
 	<script>
 		window.addEventListener("load", windowLoad);
 
@@ -219,8 +219,8 @@
 			set_timer($(".block"), [2, 0, 0, 0], function(block) {});
 		}
 	</script>
-	<script src="https://fast.wistia.com/embed/medias/t8i6dcrt4d.jsonp?_v=20230807154635" async></script>
-	<script src="https://fast.wistia.com/assets/external/E-v1.js?_v=20230807154635" async></script>
+	<script src="https://fast.wistia.com/embed/medias/t8i6dcrt4d.jsonp?_v=20230808041425" async></script>
+	<script src="https://fast.wistia.com/assets/external/E-v1.js?_v=20230808041425" async></script>
 	<script>
 		window.addEventListener("load", windowLoad);
 
@@ -236,6 +236,7 @@
 			_wq.push({
 				id: "t8i6dcrt4d",
 				onReady(video) {
+					video.disablePictureInPicture = true;
 					video.bind("play", function() {
 						pauseButton.classList.add("_active");
 						playButton.classList.remove("_active");
@@ -344,7 +345,7 @@
 						<input type="email" id="email" name="user-email" placeholder="Deine E-mail Adresse" required class="form-zoom__input" />
 					</label>
 					<label for="user-phone" class="form-zoom__label form-zoom__label_phone">
-						<input type="tel" id="user-phone" name="user-phone" placeholder="Deine Telefonnummer" required class="form-zoom__input" />
+						<input type="tel" id="user-phone" name="user-phone" placeholder="Deine Telefonnummer (optional)" class="form-zoom__input" />
 					</label>
 					<div class="form-zoom__line-message">
 						<textarea class="form-zoom__textarea" placeholder="Beste Erreichbarkeit (optional)" name="user-message"></textarea>
@@ -362,7 +363,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230807154635"></script>
+	<script src="js/app.min.js?_v=20230808041425"></script>
 </body>
 
 </html>
